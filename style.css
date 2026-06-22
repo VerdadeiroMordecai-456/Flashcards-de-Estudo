@@ -1,4 +1,15 @@
-/* Seus estilos originais continuam aqui */
+/* ==========================================
+   1. ESTILOS GERAIS E CABEÇALHO
+   ========================================== */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f6f0; /* Cor de fundo suave */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 .cabecalho {
   background-color: #7e3e1c;
   padding: 15px 25px;
@@ -10,27 +21,44 @@
 .cabecalho-link {
   color: #fff;
   text-decoration: none;
+  font-weight: bold;
+}
+
+.cabecalho-link:hover {
+  text-decoration: underline;
 }
 
 h1 {
   color: #fff;
   font-size: 24px;
+  margin: 0;
 }
 
-/* ===================================================
-   NOVO: Estilização do Flashcard (Efeito 3D ao passar o mouse)
-   =================================================== */
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
 
-/* Configura o tamanho do cartão e a perspectiva 3D */
+h2 {
+  color: #7e3e1c;
+  margin-bottom: 30px;
+    text-align: center;
+}
+
+/* ==========================================
+   2. EFEITO 3D DO FLASHCARD
+   ========================================== */
 .cartao {
   background-color: transparent;
-  width: 300px;
-  height: 400px;
+  width: 320px;
+  height: 420px;
   perspective: 1000px; 
-  margin: 20px auto; /* Centraliza o cartão na tela */
+  cursor: pointer; /* Mostra a mãozinha ao passar o mouse */
 }
 
-/* Caixa interna que vai girar */
 .cartao-interno {
   position: relative;
   width: 100%;
@@ -38,49 +66,66 @@ h1 {
   text-align: center;
   transition: transform 0.6s;
   transform-style: preserve-3d;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   border-radius: 10px;
 }
 
-/* Faz o cartão girar quando passa o mouse */
-.cartao:hover .cartao-interno {
+/* Vira o cartão com o Hover do mouse OU quando a classe .active for ativada pelo JS */
+.cartao:hover .cartao-interno,
+.cartao.active .cartao-interno {
   transform: rotateY(180deg);
 }
 
-/* Propriedades comuns para a frente e o verso */
 .cartao-frente, .cartao-verso {
   position: absolute;
   width: 100%;
   height: 100%;
-  -webkit-backface-visibility: hidden; /* Esconde a parte de trás enquanto gira */
+  -webkit-backface-visibility: hidden; /* Esconde o verso enquanto vira */
   backface-visibility: hidden;
   border-radius: 10px;
-  padding: 15px;
+  padding: 20px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
 /* Estilo da Frente */
 .cartao-frente {
-  background-color: #f1f1f1;
+  background-color: #ffffff;
   color: #333;
+  border: 2px solid #e0e0e0;
 }
 
 /* Estilo do Verso (já começa invertido) */
 .cartao-verso {
   background-color: #7e3e1c;
-  color: white;
+  color: #ffffff;
   transform: rotateY(180deg);
 }
 
-/* Garante que as imagens não quebrem o layout do cartão */
+/* Configuração das Imagens */
 .cartao-imagem {
   width: 100%;
-  height: 200px;
+  height: 220px;
   object-fit: cover;
   border-radius: 8px;
-  margin-bottom: 15px;
+}
+
+.cartao p {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 15px 0 0 0;
+}
+
+/* ==========================================
+   3. RODAPÉ
+   ========================================== */
+footer {
+  background-color: #7e3e1c;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  font-size: 14px;
 }
