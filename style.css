@@ -4,7 +4,7 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f9f6f0; /* Cor de fundo suave */
+  background-color: #f9f6f0;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -51,16 +51,16 @@ h2 {
 }
 
 /* ==========================================
-   2. DISTRIBUIÇÃO DOS CARTÕES (HORIZONTAL)
+   2. DISTRIBUIÇÃO DOS CARTÕES (HORIZONTAL REAL EM 100%)
    ========================================== */
 .container-cartoes {
   display: flex;
   flex-direction: row;      /* Alinha os cartões lado a lado */
-  flex-wrap: wrap;          /* Quebra a linha se a tela for minúscula */
+  flex-wrap: nowrap;        /* Impede que eles quebrem a linha em telas comuns */
   justify-content: center;  /* Centraliza o grupo de cartões na tela */
-  gap: 20px;                /* Distância entre cada cartão */
+  gap: 15px;                /* Distância otimizada entre cada cartão */
   width: 100%;
-  max-width: 1400px;
+  max-width: 1200px;
   margin-top: 10px;
 }
 
@@ -69,10 +69,10 @@ h2 {
    ========================================== */
 .cartao {
   background-color: transparent;
-  width: 260px;             /* Reduzido para caber os 4 lado a lado em 100% de zoom */
-  height: 390px;            /* Altura proporcional */
+  width: 230px;             /* Largura perfeita para caber os 4 em 100% de zoom */
+  height: 380px;            /* Altura proporcional */
   perspective: 1000px; 
-  cursor: pointer;          /* Mostra a mãozinha ao passar o mouse */
+  cursor: pointer;          
 }
 
 .cartao-interno {
@@ -86,7 +86,6 @@ h2 {
   border-radius: 10px;
 }
 
-/* Vira o cartão com o Hover do mouse OU quando a classe .active for ativada pelo JS */
 .cartao:hover .cartao-interno,
 .cartao.active .cartao-interno {
   transform: rotateY(180deg);
@@ -96,7 +95,7 @@ h2 {
   position: absolute;
   width: 100%;
   height: 100%;
-  -webkit-backface-visibility: hidden; /* Esconde o verso enquanto vira */
+  -webkit-backface-visibility: hidden; 
   backface-visibility: hidden;
   border-radius: 10px;
   padding: 15px;
@@ -114,7 +113,7 @@ h2 {
   border: 2px solid #e0e0e0;
 }
 
-/* Estilo do Verso (já começa invertido) */
+/* Estilo do Verso */
 .cartao-verso {
   background-color: #7e3e1c;
   color: #ffffff;
@@ -124,13 +123,13 @@ h2 {
 /* Configuração das Imagens */
 .cartao-imagem {
   width: 100%;
-  height: 180px;            /* Ajustado para casar com a nova largura */
+  height: 160px;            
   object-fit: cover;
   border-radius: 8px;
 }
 
 .cartao p {
-  font-size: 16px;          /* Texto levemente menor para garantir que caiba perfeitamente */
+  font-size: 15px;          /* Ajustado para caber perfeitamente no espaço do texto */
   font-weight: 500;
   margin: 10px 0 0 0;
 }
@@ -144,4 +143,11 @@ footer {
   text-align: center;
   padding: 10px;
   font-size: 14px;
+}
+
+/* Caso a tela seja de um celular bem pequeno, ele permite empilhar por segurança */
+@media (max-width: 950px) {
+  .container-cartoes {
+    flex-wrap: wrap;
+  }
 }
