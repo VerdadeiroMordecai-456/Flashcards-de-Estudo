@@ -56,9 +56,9 @@ h2 {
 .container-cartoes {
   display: flex;
   flex-direction: row;      /* Alinha os cartões lado a lado */
-  flex-wrap: wrap;          /* Quebra a linha se a tela for pequena (responsivo) */
+  flex-wrap: wrap;          /* Quebra a linha se a tela for minúscula */
   justify-content: center;  /* Centraliza o grupo de cartões na tela */
-  gap: 25px;                /* Distância entre cada cartão */
+  gap: 20px;                /* Distância entre cada cartão */
   width: 100%;
   max-width: 1400px;
   margin-top: 10px;
@@ -69,10 +69,10 @@ h2 {
    ========================================== */
 .cartao {
   background-color: transparent;
-  width: 320px;
-  height: 420px;
+  width: 260px;             /* Reduzido para caber os 4 lado a lado em 100% de zoom */
+  height: 390px;            /* Altura proporcional */
   perspective: 1000px; 
-  cursor: pointer; /* Mostra a mãozinha ao passar o mouse */
+  cursor: pointer;          /* Mostra a mãozinha ao passar o mouse */
 }
 
 .cartao-interno {
@@ -99,7 +99,7 @@ h2 {
   -webkit-backface-visibility: hidden; /* Esconde o verso enquanto vira */
   backface-visibility: hidden;
   border-radius: 10px;
-  padding: 20px;
+  padding: 15px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -124,15 +124,15 @@ h2 {
 /* Configuração das Imagens */
 .cartao-imagem {
   width: 100%;
-  height: 220px;
+  height: 180px;            /* Ajustado para casar com a nova largura */
   object-fit: cover;
   border-radius: 8px;
 }
 
 .cartao p {
-  font-size: 18px;
+  font-size: 16px;          /* Texto levemente menor para garantir que caiba perfeitamente */
   font-weight: 500;
-  margin: 15px 0 0 0;
+  margin: 10px 0 0 0;
 }
 
 /* ==========================================
