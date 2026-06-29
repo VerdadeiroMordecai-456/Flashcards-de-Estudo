@@ -129,3 +129,16 @@ footer {
   padding: 10px;
   font-size: 14px;
 }
+
+/* ==========================================
+   4. DISTRIBUIÇÃO DOS CARTÕES (GRID)
+   ========================================== */
+.container-cartoes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  width: 100%;
+  max-width: 1400px;
+  justify-items: center; /* Centraliza os cartões dentro do espaço deles */
+  margin-top: 10px;
+}
